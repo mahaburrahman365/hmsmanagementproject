@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:hmsmanagementproject/screens/main_drawer.dart';
 import 'details_screen.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,8 +11,12 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
-      
       ),
+      drawer: MainDrawer(
+        
+      ),
+       
+      
       body: Center(
         child:Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,10 +28,7 @@ class HomeScreen extends StatelessWidget {
            RaisedButton(
             child: Text('Go to details'),
             onPressed: (){
-              Navigator.push(
-                context, MaterialPageRoute(
-                builder: (context) => DetailsScreen(),
-                ));
+              Navigator.of(context).pushNamed(DetailsScreen.routeName);
             },
            ),
 
